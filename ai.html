@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Riddle Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: white;
+        text-align: center;
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    #container {
+        background: rgba(0,0,0,0.3);
+        padding: 25px;
+        border-radius: 15px;
+        max-width: 600px;
+        margin: auto;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    button {
+        padding: 12px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #generateBtn {
+        background-color: #00c9a7;
+        color: white;
+    }
+
+    #likeBtn {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    #dislikeBtn {
+        background-color: #f44336;
+        color: white;
+    }
+
+    #answerBtn {
+        background-color: #ffb347;
+        color: black;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    #riddle {
+        font-size: 1.3em;
+        margin-top: 20px;
+    }
+
+    #answer {
+        margin-top: 10px;
+        font-style: italic;
+        display: none;
+    }
+
+    #score {
+        margin-top: 20px;
+        font-size: 1.1em;
+    }
+</style>
+</head>
+<body>
+
+<h1>🧠 Riddle Generator</h1>
+
+<div id="container">
+    <button id="generateBtn">Generate Riddle</button>
+
+    <div id="riddle">Click the button to get a riddle!</div>
+    <div id="answer"></div>
+
+    <button id="answerBtn">Show Answer</button><br>
+
+    <button id="likeBtn">👍 Like</button>
+    <button id="dislikeBtn">👎 Dislike</button>
+
+    <div id="score">
+        Likes: <span id="likes">0</span> |
+        Dislikes: <span id="dislikes">0</span>
+    </div>
+</div>
+
+<script>
+    const riddles = [
+        {
+            question: "What has to be broken before you can use it?",
+            answer: "An egg"
+        },
+        {
+            question: "I’m tall when I’m young, and short when I’m old. What am I?",
+            answer: "A candle"
+        },
+        {
+            question: "What month of the year has 28 days?",
+            answer: "All of them"
+        },
+        {
+            question: "What is full of holes but still holds water?",
+            answer: "A sponge"
+        },
+        {
+            question: "What question can you never answer yes to?",
+            answer: "Are you asleep yet?"
+        },
+        {
+            question: "I speak without a mouth and hear without ears. What am I?",
+            answer: "An echo"
+        }
+    ];
+
+    let currentRiddle = null;
+    let likes = 0;
+    let dislikes = 0;
+
+    const riddleDiv = document.getElementById("riddle");
+    const answerDiv = document.getElementById("answer");
+
+    document.getElementById("generateBtn").onclick = () => {
+        const randomIndex = Math.floor(Math.random() * riddles.length);
+        currentRiddle = riddles[randomIndex];
+
+        riddleDiv.textContent = currentRiddle.question;
+        answerDiv.textContent = "Answer: " + currentRiddle.answer;
+        answerDiv.style.display = "none";
+    };
+
+    document.getElementById("answerBtn").onclick = () => {
+        if (currentRiddle) {
+            answerDiv.style.display = "block";
+        }
+    };
+
+    document.getElementById("likeBtn").onclick = () => {
+        if (currentRiddle) {
+            likes++;
+            document.getElementById("likes").textContent = likes;
+        }
+    };
+
+    document.getElementById("dislikeBtn").onclick = () => {
+        if (currentRiddle) {
+            dislikes++;
+            document.getElementById("dislikes").textContent = dislikes;
+        }
+    };
+</script>
+
+</body>
+</html>

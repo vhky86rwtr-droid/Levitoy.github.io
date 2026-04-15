@@ -1,0 +1,73 @@
+body {
+    background-color: #d0c8c8; /* A soft, warm off-white */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: 'Georgia', serif;
+    color: #4a3c3c; /* Deep espresso brown */
+    text-align: center;
+}
+
+p, li {
+    font-family: 'Arial', sans-serif;
+    color: #5d5d5d; /* Dark grey for readability */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.content-block {
+    border-bottom: 1px solid #eee;
+    padding: 40px 0;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+nav {
+    background-color: #4a3c3c;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.main-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.secondary-img {
+    float: right;
+    width: 300px;
+    margin-left: 20px;
+    border-radius: 4px;
+}
+
+.intro-link {
+    text-align: center;
+    font-style: italic;
+}
+.tableauPlaceholder {
+    min-height: 600px; /* Forces the box to stay open */
+    background-color: #cbbfbf; /* Shows a light grey box while loading */
+}
